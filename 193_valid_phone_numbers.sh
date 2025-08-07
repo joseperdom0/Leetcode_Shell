@@ -22,3 +22,14 @@
 
 # 987-123-4567
 # (123) 456-7890
+
+# IFS = Internal Field Separator
+
+while IFS= read -r line; do
+    echo "$line" | grep -E '^[0-9]{3}-[0-9]{3}-[0-9]{4}$'
+    if [[$? -eq 0 ]]; then
+  echo "$line"   
+else
+  echo -n
+done < file.txt
+    
